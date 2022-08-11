@@ -1,0 +1,35 @@
+{
+    "name": "flankerspb/curl",
+    "type": "library",
+    "description": "Simple cURL wrapper",
+    "keywords": ["curl"],
+    "homepage": "https://github.com/flankerspb/curl",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Vitaliy Moskalyuk",
+            "email": "flanker@bk.ru"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "fl\\curl\\": "src"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        }
+    }
+}

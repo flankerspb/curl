@@ -1,0 +1,15 @@
+# ide
+.idea
+nbproject
+.buildpath
+.project
+.settings
+
+# trash
+Thumbs.db
+.DS_Store
+
+# composer
+/vendor
+composer.lock
+composer.phar
