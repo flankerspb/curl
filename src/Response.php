@@ -56,14 +56,14 @@ class Response implements ResponseInterface
 		$this->code      = curl_getinfo($handle, CURLINFO_RESPONSE_CODE);
 		$this->allCookie = curl_getinfo($handle, CURLINFO_COOKIELIST);
 
-		if ($options[CURLINFO_HEADER_OUT])
+		if (isset($options[CURLINFO_HEADER_OUT]) && $options[CURLINFO_HEADER_OUT])
 		{
 			$this->requestHeader = curl_getinfo($handle, CURLINFO_HEADER_OUT);
 			$this->requestBody   = $options[CURLOPT_POSTFIELDS] ?? null;
 		}
 
 
-		if ($options[CURLOPT_FOLLOWLOCATION])
+		if (isset($options[CURLOPT_FOLLOWLOCATION]) && $options[CURLOPT_FOLLOWLOCATION])
 		{
 			$this->redirectCount = curl_getinfo($handle, CURLINFO_REDIRECT_COUNT);
 			$this->effectiveUrl  = curl_getinfo($handle, CURLINFO_EFFECTIVE_URL);
