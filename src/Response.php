@@ -20,9 +20,8 @@ class Response implements ResponseInterface
 	public string $mimeType;
 	public string $charset;
 
-	public array  $headers   = [];
-	public array  $cookie    = [];
-	public array  $allCookie = [];
+	public array  $headers = [];
+	public array  $cookie  = [];
 
 	public ?string $requestHeader = null;
 	public ?string $requestBody   = null;
@@ -53,8 +52,7 @@ class Response implements ResponseInterface
 			return;
 		}
 
-		$this->code      = curl_getinfo($handle, CURLINFO_RESPONSE_CODE);
-		$this->allCookie = curl_getinfo($handle, CURLINFO_COOKIELIST);
+		$this->code = curl_getinfo($handle, CURLINFO_RESPONSE_CODE);
 
 		if (isset($options[CURLINFO_HEADER_OUT]) && $options[CURLINFO_HEADER_OUT])
 		{
