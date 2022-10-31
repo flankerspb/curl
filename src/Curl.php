@@ -34,10 +34,8 @@ class Curl
 		$this->defaultOptions[CURLOPT_SSL_VERIFYPEER] = !$isDebug;
 		$this->defaultOptions[CURLOPT_SSL_VERIFYHOST] = $isDebug ? 0 : 2;
 
-        //$this->setOptions(array_merge($this->defaultOptions, $options));
-        $this->setOptions($this->defaultOptions); //
-        $this->setOptions($options);
-
+		$this->setOptions($this->defaultOptions);
+		$this->setOptions($options);
 
 		$this->handle = curl_init();
 		$this->id     = (int) $this->handle;
