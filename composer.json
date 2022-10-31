@@ -16,20 +16,9 @@
         "ext-curl": "*",
         "ext-json": "*"
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
-        }
-    ],
     "autoload": {
         "psr-4": {
             "fl\\curl\\": "src"
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.0.x-dev"
         }
     }
 }
