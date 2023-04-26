@@ -15,10 +15,10 @@ class Response implements ResponseInterface
 	public ?string $header = null;
 	public ?string $body   = null;
 
-	public int    $code;
-	public int    $contentLength;
-	public string $mimeType;
-	public string $charset;
+	public ?int   $code          = null;
+	public int    $contentLength = 0;
+	public string $mimeType      = '';
+	public string $charset       = '';
 
 	public array  $headers = [];
 	public array  $cookie  = [];
