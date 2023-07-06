@@ -4,7 +4,7 @@ namespace fl\curl;
 
 class Response implements ResponseInterface
 {
-	public float   $requestTime;
+	public float   $time;
 	public string  $url;
 	public ?string $proxy = null;
 
@@ -40,9 +40,9 @@ class Response implements ResponseInterface
 
 		$result = curl_exec($handle);
 
-		$this->requestTime = microtime(true);
-		$this->url         = $options[CURLOPT_URL];
-		$this->proxy       = $options[CURLOPT_PROXY] ?? null;
+		$this->time  = microtime(true);
+		$this->url   = $options[CURLOPT_URL];
+		$this->proxy = $options[CURLOPT_PROXY] ?? null;
 
 		if ($result === false)
 		{
@@ -165,7 +165,9 @@ class Response implements ResponseInterface
 
 		if (array_key_exists('set-cookie', $this->headers))
 		{
-			foreach (Cookie::parse($this->headers['set-cookie']) as $cookie)
+			$now = (int) $this->time;
+
+			foreach (Cookie::parse($this->headers['set-cookie'], $now) as $cookie)
 			{
 				$this->cookie[$cookie->name] = $cookie;
 			}

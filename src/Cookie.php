@@ -59,14 +59,15 @@ class Cookie
 
 	/**
 	 * @param   string|string[]  $cookies
+	 * @param   int              $timeStamp
 	 *
 	 * @return self[]
 	 */
-	public static function parse($cookies) : array
+	public static function parse($cookies, int $timeStamp) : array
 	{
 		$result = [];
 
-		foreach ((array) $cookies as $key => $cookie)
+		foreach ((array) $cookies as $cookie)
 		{
 			if (stripos($cookie, 'Set-Cookie:') === 0)
 			{
@@ -110,8 +111,14 @@ class Cookie
 					case 'path':
 						$path = $value;
 						break;
+					case 'max-age':
+						$expires = ((int) $value) + $timeStamp;
+						break;
 					case 'expires':
-						$expires = strtotime($value);
+						if (!$expires)
+						{
+							$expires = strtotime($value);
+						}
 						break;
 					case 'secure':
 						$secure = true;

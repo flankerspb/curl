@@ -399,7 +399,7 @@ class Curl
 
 	public function lastRequestTime() : ?float
 	{
-		return $this->lastResponse ? $this->lastResponse->requestTime : null;
+		return $this->lastResponse ? $this->lastResponse->time : null;
 	}
 }
 
