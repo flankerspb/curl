@@ -2,11 +2,13 @@
 
 # Simple cURL wrapper
 
-
 [![License](https://img.shields.io/github/license/flankerspb/curl)](LICENSE.md)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/flankerspb/curl)
 ![PHP](https://img.shields.io/badge/php-%3E%3D7.4-7377AD)
 
+![Packagist version](https://img.shields.io/packagist/v/flankerspb/curl?label=latest+version)
+![Github downloads](https://img.shields.io/github/downloads/flankerspb/curl/total?logo=github)
+[![Packagist Downloads](https://img.shields.io/packagist/dt/flankerspb/curl?logo=packagist&logoColor=%23ffffff)](https://packagist.org/packages/flankerspb/curl)
 
 ## Installation
 
