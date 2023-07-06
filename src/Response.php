@@ -16,6 +16,7 @@ class Response implements ResponseInterface
 	public ?string $body   = null;
 
 	public ?int   $code          = null;
+	public int    $size          = 0;
 	public int    $contentLength = 0;
 	public string $mimeType      = '';
 	public string $charset       = '';
@@ -53,6 +54,7 @@ class Response implements ResponseInterface
 		}
 
 		$this->code = curl_getinfo($handle, CURLINFO_RESPONSE_CODE);
+		$this->size = curl_getinfo($handle, CURLINFO_SIZE_DOWNLOAD_T);
 
 		if (isset($options[CURLINFO_HEADER_OUT]) && $options[CURLINFO_HEADER_OUT])
 		{
